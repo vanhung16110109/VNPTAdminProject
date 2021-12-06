@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+<a th:href="@{/vnptidc-add}">Add vnptidc</a>
+<a th:href="@{/vnptidc}">List vnptidc</a><br />
+  <h1>Edit InternetTV:</h1>
+  <form th:action="@{/vnptidc-update-save}" method="POST" th:object="${navbarVNPTIDC}">
+      Id: <input th:field="*{id}" readonly="true" /> <br/> <br/>
+      Title: <input th:field="*{title}"/> <br/> <br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

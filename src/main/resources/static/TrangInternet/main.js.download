@@ -1,0 +1,135 @@
+$(document).ready(function () {
+  $('.menu-icon').click(function (e) {
+    e.preventDefault()
+    $('body').toggleClass('show-navbar')
+  })
+
+  $('.overlay__ses').click(function (e) {
+    $('body').removeClass('show-navbar')
+  })
+  $('.close-icon').click(function (e) {
+    $('body').removeClass('show-navbar')
+  })
+  // Slick slider
+  $('.hero-slider__list').slick({
+    dots: false,
+    // autoplay: true,
+    infinite: true,
+    dots: false,
+    slidesToShow: 1,
+    slideswToScroll: 1,
+    arrows: false,
+  })
+  // Slick slider
+  $('.testimonial-slider__list').slick({
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    // autoplaySpeed: 6000,
+    // speed: 800,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    slideswToScroll: 1,
+    appendArrows: $('.slick-slider-nav'),
+    // appendDots: $('.slick-slider-dots'),
+    // prevArrow:
+    //   "<button class='slick-prev btn btn-white rounded-circle'><i class='mdi mdi-chevron-left'></i></button>",
+    // nextArrow:
+    //   "<button class='slick-next btn btn-white rounded-circle'><i class='mdi mdi-chevron-right'></i></button>",
+  })
+  // Slick slider
+  $('.partner-slider__list').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
+  })
+
+  var selectedElement = ''
+  $(document).click(function (event) {
+    if (selectedElement) {
+      $(selectedElement).parent().toggleClass('open')
+      // $(selectedElement).parent().find('ul').toggle(400)
+      selectedElement = ''
+    }
+  })
+  $('#main-menu-toggle').click(function (event) {
+    event.preventDefault()
+    $('.main-menu, .backdrop').addClass('expanded')
+  })
+  $('#main-menu-close, .backdrop').click(function (event) {
+    event.preventDefault()
+    $('.main-menu, .backdrop').removeClass('expanded')
+  })
+
+  function windowSizeCheck() {
+    $('.navbar-main > ul.navbar-list > li.navbar-item > a').off('click') // Prevent duplicate bindings
+    if ($(window).width() < '992') {
+      $('.navbar-main > ul.navbar-list > li.navbar-item > a').click(function (
+        event
+      ) {
+        //close other open menus besides this one
+        if (this == selectedElement) {
+          //just close it
+          $(this).parent().toggleClass('open')
+          // $(this).parent().find('ul').toggle(400)
+          selectedElement = ''
+        } else {
+          if (selectedElement) {
+            //close it first
+            $(selectedElement).parent().toggleClass('open')
+            // $(selectedElement).parent().find('ul').toggle(400)
+          }
+          //open this one
+          $(this).parent().toggleClass('open')
+          // $(this).parent().find('ul').toggle(400)
+          selectedElement = this
+        }
+        event.preventDefault()
+        event.stopPropagation()
+      })
+    } else {
+    }
+  }
+  windowSizeCheck()
+  $(window).resize(windowSizeCheck)
+  // Accordion
+  $(function() {
+	
+	//BEGIN
+	$(".accordion__title").on("click", function(e) {
+
+		e.preventDefault();
+		var $this = $(this);
+
+		if (!$this.hasClass("accordion-active")) {
+			$(".accordion__content").slideUp(400);
+			$(".accordion__title").removeClass("accordion-active");
+			$('.accordion__arrow').removeClass('accordion__rotate');
+		}
+
+		$this.toggleClass("accordion-active");
+		$this.next().slideToggle();
+		$('.accordion__arrow',this).toggleClass('accordion__rotate');
+	});
+	//END
+	
+});
+})

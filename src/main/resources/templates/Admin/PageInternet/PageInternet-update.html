@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+<a th:href="@{/page-internet-add}">Add data</a>
+<a th:href="@{/page-internet}">List data</a><br />
+  <h1>Edit data:</h1>
+  <form th:action="@{/page-internet-update-save}" method="POST" th:object="${pageInternet}">
+      Id: <input th:field="*{id}" readonly="true" /> <br/> <br/>
+      GÓI CƯỚC: <input th:field="*{nameData}"/> <br/> <br/>
+      DATA(GB/NGÀY): <input th:field="*{data}"/> <br/> <br/>
+      THOẠI NỘI MẠNG(phút/tháng): <input th:field="*{internetVoice1}"/> <br/> <br/>
+      THOẠI NGOẠI MẠNG(phút/tháng): <input th:field="*{internetVoice2}"/> <br/> <br/>
+      TIN NHẮN TRONG NƯỚC SMS: <input th:field="*{internationalMessages}"/> <br/> <br/>
+      GIÁ GÓI(Cước thuê bao 0đ): <input th:field="*{price}"/> <br/> <br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

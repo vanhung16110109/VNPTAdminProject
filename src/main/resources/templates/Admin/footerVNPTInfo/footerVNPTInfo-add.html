@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+  <a th:href="@{/vnptinfo-views}">List VNPTInfo</a><br />
+  <h1>Add new infomation:</h1>
+  <form th:action="@{/VNPTInfo-save}" method="POST" th:object="${footerVNPTInfo}">
+      Title: <input th:field="*{title}"/> <br/> <br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

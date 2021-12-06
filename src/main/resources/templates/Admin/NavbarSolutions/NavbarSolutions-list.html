@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+<style>
+table, th, td, tr {
+  border: 1px solid black;
+}
+td {
+  padding-right: 30px;
+}
+</style>
+</head>
+<body>
+  <h1>List InternetTV:</h1>
+  <a th:href="@{/solutions-vnpt-add}">Add solutions</a>
+  <br />
+  <br />
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <th:block th:each="listnavbarSolutions : ${navbarSolutions}">
+      <tr>
+        <td><p th:text="${listnavbarSolutions.id}"></p></td>
+        <td><p th:text="${listnavbarSolutions.title}"></p></td>
+        <td><a th:href="@{/solutions-vnpt-view/} + ${listnavbarSolutions.id}">View</a></td>
+        <td><a th:href="@{/solutions-vnpt-update/} + ${listnavbarSolutions.id}">Edit</a></td>
+        <td><a th:href="@{/solutions-vnpt-delete/} + ${listnavbarSolutions.id}">Delete</a></td>
+      </tr>
+    </th:block>
+  </table>
+</body>
+</html>

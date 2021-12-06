@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+  <a th:href="@{/internet-tv}">List InternetTV</a><br />
+  <h1>Edit InternetTV:</h1>
+  <form th:action="@{/internettv-update-save}" method="POST" th:object="${navbarInternetTV}">
+      Id: <input th:field="*{id}" readonly="true" /> <br/> <br/>
+      Title: <input th:field="*{title}"/> <br/> <br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

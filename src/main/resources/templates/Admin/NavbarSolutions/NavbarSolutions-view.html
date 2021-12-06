@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+  <a th:href="@{/solutions-vnpt-add}">Add solutions</a>
+  <a th:href="@{/solutions-vnpt}">List solutions</a><br />
+  <br/> <br/>
+
+  <table>
+    <tr>
+      <td>Id: </td>
+      <td><p th:text="${navbarSolutions.id}"/></td>
+    </tr>
+    <tr>
+      <td>Name: </td>
+      <td><p th:text="${navbarSolutions.title}"/></td>
+    </tr>
+
+  </table>
+</body>
+</html>

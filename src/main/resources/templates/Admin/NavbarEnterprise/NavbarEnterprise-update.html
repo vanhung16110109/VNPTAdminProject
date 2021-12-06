@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+<a th:href="@{/enterprise-vnpt-add}">Add enterprise</a>
+<a th:href="@{/enterprise-vnpt}">List enterprise</a><br />
+  <h1>Edit InternetTV:</h1>
+  <form th:action="@{/enterprise-vnpt-save}" method="POST" th:object="${navbarEnterprise}">
+      Id: <input th:field="*{id}" readonly="true" /> <br/> <br/>
+      Title: <input th:field="*{title}"/> <br/> <br/>
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

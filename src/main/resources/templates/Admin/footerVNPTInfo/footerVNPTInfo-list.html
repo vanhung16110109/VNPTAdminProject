@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+<style>
+table, th, td, tr {
+  border: 1px solid black;
+}
+td {
+  padding-right: 30px;
+}
+</style>
+</head>
+<body>
+  <h1>List Customer:</h1>
+  <a th:href="@{/vnptinfo-add}">Add vnptinfo</a>
+  <br />
+  <br />
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <th:block th:each="listinfo : ${listVNPTInfo}">
+      <tr>
+        <td><p th:text="${listinfo.id}"></p></td>
+        <td><p th:text="${listinfo.title}"></p></td>
+        <td><a th:href="@{/VNPTInfo-update/} + ${listinfo.id}">Edit</a></td>
+        <td><a th:href="@{/VNPTInfo-delete/} + ${listinfo.id}">Delete</a></td>
+      </tr>
+    </th:block>
+  </table>
+</body>
+</html>

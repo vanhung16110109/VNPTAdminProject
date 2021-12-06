@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+</head>
+<body>
+  <a th:href="@{/page-internet-add}">Add data</a>
+  <a th:href="@{/page-internet}">List data</a><br />
+  <br/> <br/>
+
+  <table>
+    <tr>
+      <td>Id: </td>
+      <td><p th:text="${pageInternet.id}"/></td>
+    </tr>
+    <tr>
+      <td>GÓI CƯỚC: </td>
+      <td><p th:text="${pageInternet.nameData}"/></td>
+    </tr>
+    <tr>
+      <td>DATA(GB/NGÀY): </td>
+      <td><p th:text="${pageInternet.data}"/></td>
+    </tr>
+    <tr>
+      <td>THOẠI NỘI MẠNG(phút/tháng): </td>
+      <td><p th:text="${pageInternet.internetVoice1}"/></td>
+    </tr>
+    <tr>
+      <td>THOẠI NGOẠI MẠNG(phút/tháng): </td>
+      <td><p th:text="${pageInternet.internetVoice2}"/></td>
+    </tr>
+    <tr>
+      <td>TIN NHẮN TRONG NƯỚC SMS: </td>
+      <td><p th:text="${pageInternet.internationalMessages}"/></td>
+    </tr>
+    <tr>
+      <td>GIÁ GÓI(Cước thuê bao 0đ): </td>
+      <td><p th:text="${pageInternet.price}"/></td>
+    </tr>
+
+  </table>
+</body>
+</html>

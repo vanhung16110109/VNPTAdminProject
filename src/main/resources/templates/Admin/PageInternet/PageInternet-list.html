@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+<style>
+table, th, td, tr {
+  border: 1px solid black;
+}
+td {
+  padding-right: 30px;
+}
+</style>
+</head>
+<body>
+  <h1>List vnptidc:</h1>
+  <a th:href="@{/page-internet-add}">Add data</a>
+  <br />
+  <br />
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>GÓI CƯỚC</th>
+      <th>DATA(GB/NGÀY)</th>
+      <th>THOẠI NỘI MẠNG(phút/tháng)</th>
+      <th>THOẠI NGOẠI MẠNG(phút/tháng)</th>
+      <th>TIN NHẮN TRONG NƯỚC SMS</th>
+      <th>GIÁ GÓI(Cước thuê bao 0đ)</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <th:block th:each="listpageInternet : ${pageInternet}">
+      <tr>
+        <td><p th:text="${listpageInternet.id}"></p></td>
+        <td><p th:text="${listpageInternet.nameData}"></p></td>
+        <td><p th:text="${listpageInternet.data}"></p></td>
+        <td><p th:text="${listpageInternet.internetVoice1}"></p></td>
+        <td><p th:text="${listpageInternet.internetVoice2}"></p></td>
+        <td><p th:text="${listpageInternet.internationalMessages}"></p></td>
+        <td><p th:text="${listpageInternet.price}"></p></td>
+        <td><a th:href="@{/page-internet-view/} + ${listpageInternet.id}">View</a></td>
+        <td><a th:href="@{/page-internet-update/} + ${listpageInternet.id}">Edit</a></td>
+        <td><a th:href="@{/page-internet-delete/} + ${listpageInternet.id}">Delete</a></td>
+      </tr>
+    </th:block>
+  </table>
+</body>
+</html>
